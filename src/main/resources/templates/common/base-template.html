@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link th:href="@{css/main.css}" rel="stylesheet">
+    <link th:href="@{css/login.css}" rel="stylesheet">
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css"
     />
 </head>
 <body>
-<div th:fragment="footer">
-    <h1> Footer Section </h1>
+<header th:insert="~{common/header.html :: header}"> </header>
+<!-- Main Content for this page-->
+<div>
+
 </div>
+<footer th:insert="~{common/footer.html :: footer}"> </footer>
 <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
