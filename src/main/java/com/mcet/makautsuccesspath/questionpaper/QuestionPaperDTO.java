@@ -10,6 +10,6 @@ import lombok.*;
 public class QuestionPaperDTO {
     private Long id;
     private Long year;
-    private String subject_id;
+    private Long subject_id;
     private String fileName;
 }

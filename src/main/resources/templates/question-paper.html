@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link th:href="@{css/main.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+    <link rel="stylesheet" th:href="@{css/swiper-bundle.min.css}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="~{common/header-loggedIn.html :: header}"> </header>
+<!-- Main Content for this page-->
+<div>
+    <form class="mt-2 mx-5 px-5 py-2" id="semester-branch-form">
+        <div id="error-message-container"></div>
+        <div class="row">
+            <div class="col-6 text-center">
+                <h4> Choose Your Semester and Branch</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <select class="form-select" aria-label="Choose Semester" id="semester-select">
+                    <option selected>Semester</option>
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="1">4th</option>
+                    <option value="2">5th</option>
+                    <option value="3">6th</option>
+                    <option value="1">7th</option>
+                    <option value="2">8th</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <select class="form-select" aria-label="Choose Branch" id="branch-select">
+                    <option selected>Branch</option>
+                    <option value="CSE">Computer Science & Engineering </option>
+                    <option value="CE">Civil Engineering</option>
+                    <option value="EE">Electrical Engineering</option>
+                    <option value="ECE">Electronics & Communication Engineering</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="submit">
+            </div>
+        </div>
+    </form>
+    <div class="mt-2 mx-5 px-5 py-2 row" id="subject-container">
+
+    </div>
+    <div id="error2-message-container"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <table class="table table-secondary table-striped table-hover mt-2 mx-2" id="subject-table">
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer th:insert="~{common/footer.html :: footer}"> </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+            $('#semester-branch-form').on('submit', function(event){
+                event.preventDefault(); // Prevent the default form submission
+
+                // Get values from the form
+                var semester = $('#semester-select').val();
+                var branch = $('#branch-select').val();
+
+                // Clear any previous error messages
+                $('#error-message-container').empty();
+                $('#subject-container').empty();
+
+                // Check if the form is submitted with default selected fields
+                if (semester === "Semester" || branch === "Branch") {
+                    const errorMessage = $('<div class="alert alert-danger text-center">Either Semester or Branch is missing. Please choose both</div>');
+                    $('#error-message-container').append(errorMessage);
+                    return; // Exit the process
+                }
+
+                // Make the AJAX request
+                $.ajax({
+                    url: `/api/subject/${semester}/${branch}`,
+                    method: 'GET', // or 'POST' if needed
+                    success: function(response) {
+                        console.log(response);
+                        if (!response || response.length === 0) {
+                            var warningMessage = $('<div class="alert alert-warning text-center">OOPS! No Subject Found. Please stay in touch, We will be updating our content soon</div>');
+                            $('#error-message-container').append(warningMessage);
+                        } else {
+                            // Process the non-empty response
+                            console.log("Response is not empty");
+                            response.forEach(function(item) {
+                                let ele = `<div class="card col-3 p-5 m-1 text-center" id="${item.id}"> ${item.name} </div>`;
+                                let successDiv = $(ele);
+                                successDiv.text(item.name);
+                                successDiv.on('click', function() {
+                                    subjectClickHandler(item.id);
+                                });
+                                $('#subject-container').append(successDiv);
+                            });
+                        }
+                    },
+                    error: function(error) {
+                        console.error(error);
+                        var errorMessage = $('<div class="alert alert-danger text-center">Something bad happened, our team will be fixing soon.</div>');
+                        $('#error-message-container').append(errorMessage);
+                    }
+                });
+    });
+    function subjectClickHandler(subjectId) {
+        console.log(`Subject Id ${subjectId}`);
+        // Clear any previous error messages
+                $('#error2-message-container').empty();
+                $('#subject-table').empty();
+                const questionUrl = `/api/question/${subjectId}`;
+                $.ajax({
+                    url: questionUrl,
+                    method: 'GET',
+                    success: function(response) {
+                        console.log(response);
+                        if (!response || response.length === 0) {
+                            var warningMessage = $('<div class="alert alert-warning text-center">OOPS! No Question Paper Found for this subject. Please stay in touch, We will be updating our content soon</div>');
+                            $('#error2-message-container').append(warningMessage);
+                        } else {
+                            const head = `<thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Year</th>
+            <th scope="col">Link</th>
+        </tr>
+        </thead>`;
+                            $('#subject-table').append($(head));
+                            $('#subject-table').append($("<tbody>"));
+                            let i = 1;
+                            response.forEach(function(item) {
+                                let ele = `<tr>
+                                            <td>${i++}</td>
+                                            <td>${item.year}</td>
+                                            <td><a class="btn btn-primary" href="resources/question/${item.year}/${item.fileName}.pdf"> Download </a></td>
+                                            </tr>`;
+                                $('#subject-table').append($(ele));
+                            });
+                            $('#subject-table').append($("</tbody>"));
+                        }
+                    },
+                    error: function(error) {
+                        console.error(error);
+                        const errorMessage = $('<div class="alert alert-danger text-center">Something bad happened while fetching questions, our team will be fixing soon.</div>');
+                        $('#error2-message-container').append(errorMessage);
+                    }
+                });
+            }
+});
+</script>
+</body>
+</html>

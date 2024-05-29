@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface QuestionPaperRepository extends JpaRepository<QuestionPaper, Long> {
 
-    @Query("FROM QuestionPaper q WHERE q.year = :year AND q.subject.id = :subjectId")
-    List<QuestionPaper> findByYearAndSubject(Long year, String subjectId);
+    @Query("FROM QuestionPaper q WHERE q.subject.id = :subjectId ORDER BY q.year DESC")
+    List<QuestionPaper> getAllBySubject(Long subjectId);
 }
