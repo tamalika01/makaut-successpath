@@ -1,5 +1,22 @@
-.navbar{
+
+.navbar , footer{
     background-color: #7854F2
 }
 
 /* login */
+.login-container {
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: #EFECF7;
+}
+
+/* Sign UP */
+.signup-container {
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: #EFECF7;
+
+}
+
+
+

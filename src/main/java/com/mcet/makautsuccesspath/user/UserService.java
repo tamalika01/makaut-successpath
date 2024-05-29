@@ -5,11 +5,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Service
 public class UserService implements UserDetailsManager {
@@ -17,8 +15,6 @@ public class UserService implements UserDetailsManager {
     @Autowired
     private UserRepository repository;
 
-    @Autowired
-    private AuthGrantedRepository authGrantedRepository;
 
     @Override
     public User loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -62,15 +58,5 @@ public class UserService implements UserDetailsManager {
     @Override
     public boolean userExists(String email) {
         return repository.findByEmail(email).isPresent();
-    }
-
-    @Transactional
-    public void registerNewUser(RegisterRequestDTO registerRequestDTO) {
-        AuthGrantedAuthority authority = new AuthGrantedAuthority("USER");
-        authGrantedRepository.save(authority);
-        Set<AuthGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(authority);
-        User user = new User(registerRequestDTO.firstName, registerRequestDTO.lastName, registerRequestDTO.email, registerRequestDTO.password, true, true, true, true, authorities);
-        repository.save(user);
     }
 }

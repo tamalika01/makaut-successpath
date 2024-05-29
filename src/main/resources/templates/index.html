@@ -1,13 +1,298 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKAUT SuccessPath</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+     <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+     <link rel="stylesheet" th:href="@{css/swiper-bundle.min.css}" />
 </head>
 <body>
-<h1>Hello, world!</h1>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Navbar -->
+    <nav>
+        <img src="../static/images/home/logo-black.png">
+        <div class="navigation">
+            <ul>
+                <i id="close-btn" class="fa fa-xmark"></i>
+                <li><a href="sign up/login.html">Login / Sin up</a></li>
+            <li><a href="Question/NewQuestion.html">Questions</a></li>
+            <li><a href="Placement/PL.home.html">Placement </a></li>
+            <li><a href="Contucts/C.Home.html">Contucts</a></li>
+            <li><a href="About/Ab.html">About</a></li>
+            </ul>
+            <img src="../static/images/home/menu.png" id="menu-btn">
+        </div>
+    </nav>
+    <div class="flater">
+      <marquee>Explore Questions and Placement materials in Computer Science & Engineering, Electrical Engineering, Electronics & Communication Engineering and Civil Engineering.</marquee>
+  </div>
+    <!-- Content -->
+    <div class="content">
+        <h1 style="background-color:rgb(247, 247, 247);">Welcome to the MAKAUT SuccessPath</h1>
+    </div>
+    <div class="questions">
+        <h3 style="background-color:rgb(244, 244, 244);"> Daily Blogs </h3>
+    </div>    
+    <!-- Full-width images with number and caption text -->
+    <div class="scroller-container">
+        <div class="scroller">
+      <img src="../static/images/home/image1.jpg" style="width: 13%">
+      <img src="../static/images/home/image3.jpeg" style="width:14%">
+      <img src="../static/images/home/image4.jpeg" style="width:15%">
+      <img src="../static/images/home/c11.jpg" style="width: 13%">
+      <img src="../static/images/home/c10.jpg" style="width:10.05%">
+      <img src="../static/images/home/c9.jpg" style="width:14%">
+      <img src="../static/images/home/c8.jpg" style="width:15%">
+      <img src="../static/images/home/c6.jpg" style="width:14%">
+      <img src="../static/images/home/c7.jpeg" style="width:15%">
+    </div>
+    </div>
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+   <!-- Features -->
+    <section id="feature">
+      <h1>Awesome Features</h1>
+      <p>Replenish man have thing gathering lights yeilding shall you</p>
+      <div class="fea-base">
+          <div class="fea-box">
+              <i class="fa fa-graduation-cap"></i>
+              <h3>Scolarship Facilities</h3>
+              <p>one make creepeth man bearing theira fimement won't great heaver </p>
+          </div>
+          <div class="fea-box">
+              <i class="fa fa-book"></i>
+              <h3>Sell Online Courses</h3>
+              <p>one make creepeth man bearing theira fimement won't great heaver </p>
+          </div>
+          <div class="fea-box">
+              <i class="fa-solid fa-award"></i>
+              <h3>Global Certificate</h3>
+              <p>one make creepeth man bearing theira fimement won't great heaver </p>
+          </div>
+      </div>
+  </section>
+  <!-- Courses -->
+  <section id="courses">
+      <h1>Our Popular Course</h1>
+      <p>Replenish man have thing gathering lights yeilding shall you</p>
+      <div class="course-box">
+          <div class="courses">
+              <img src="../static/images/home/c1.jpg">
+              <div class="details">
+                  <span>Updated  01/05/2024</span>
+                  <h6>HTML Beginners Courses</h6>
+                  <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <span>Join Students </span>
+                </div>
+              </div>
+              <div class="cost">
+                  Free
+              </div>
+          </div>
+          <div class="courses">
+              <img src="../static/images/home/c2.jpg">
+              <div class="details">
+                  <span>Updated  01/05/2024</span>
+                  <h6>CSS Beginners Courses</h6>
+                  <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <span>Join Students</span>
+                  </div>
+              </div>
+              <div class="cost">
+                  Free
+              </div>
+          </div>
+          <div class="courses">
+              <img src="../static/images/home/c4.jpg">
+              <div class="details">
+                  <span>Updated  01/05/2024</span>
+                  <h6>Javascript Beginners Courses</h6>
+                  <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <span>Join Students</span>
+                  </div>
+              </div>
+              <div class="cost">
+                  Free
+              </div>
+          </div>
+          <div class="courses">
+              <img src="../static/images/home/image.png">
+              <div class="details">
+                  <span>Updated  01/05/2024</span>
+                  <h6>CSS Advance Courses</h6>
+                  <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <span>Join Students</span>
+                  </div>
+              </div>
+              <div class="cost">
+                  Free
+              </div>
+          </div>
+          <div class="courses">
+              <img src="../static/images/home/c5.jpg">
+              <div class="details">
+                  <span>Updated  01/05/2024</span>
+                  <h6>HTML Advanced Courses</h6>
+                  <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <span>Join Students</span>
+                  </div>
+              </div>
+              <div class="cost">
+                  Free
+              </div>
+          </div>
+          <div class="courses">
+              <img src="../static/images/home/c8.jpg">
+              <div class="details">
+                  <span>Updated 01/05/2024</span>
+                  <h6>Javascript Advance  Courses</h6>
+                  <div class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                      <span>Join Students</span>
+                  </div>
+              </div>
+              <div class="cost">
+                  Free
+              </div>
+      </div>
+  </section>
+  <!--Registraion-->
+<section id="regestration">
+  <div class="reminder">
+      <p>Get 100 Online Course For Free</p>
+      <h2>Register To Get It</h2>
+      <div class="time">
+          <div class="date">
+              18 <br /> Days
+          </div>
+          <div class="date">
+              23 <br /> Hours
+          </div>
+          <div class="date">
+              06 <br /> Mins
+          </div>
+          <div class="date">
+              58 <br /> Secs
+          </div>
+      </div>
+  </div>
+  <div class="form">
+      <form action="">
+          <h2>Create Free Account NOW!</h2>
+          <input type="text"  placeholder="Name" id="">
+          <input type="email"  placeholder="Email Adress" id="">
+          <input type="phone"  placeholder="Phone Number" id="">
+          <div class="btn">
+              <a class="yellow" href="">Submit Form</a>
+          </div>
+      </form>
+  </div>
+</section>
+  <!-- profile -->
+  <section id="expert">
+      <h1>Our Experts Teacher</h1>
+      <p>Replenish man have thing gathering lights yeilding shall you</p>
+      <div class="expert-box">
+
+          <div class="profile">
+              <img src="../static/images/home/pro1.png" >
+              <h6>Gourab Bhattacharjee</h6>
+              <p>Html Css JavaScript & React</p>
+              <div class="pro-link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+          </div>
+          <div class="profile">
+              <img src="../static/images/home/pro2.jpg" >
+              <h6>Sudipta Sarkar</h6>
+              <p>Html Css JavaScript & React</p>
+              <div class="pro-link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+          </div>
+          <div class="profile">
+              <img src="../static/images/home/pro3.png" class="ojlsjd">
+              <h6> Tamalika Chowdhury </h6>
+              <p>Html Css JavaScript & React</p>
+              <div class="pro-link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+          </div>
+          <div class="profile">
+              <img src="../static/images/home/pro4.png">
+              <h6>Nidali Jaiswal</h6>
+              <p>Html Css JavaScript & React</p>
+              <div class="pro-link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <ul class="footer-links">
+          <li><a href="Blogs/BL.home.html">Blogs</a></li>
+          <li><a href="get-help/get-help.html">Get Help</a></li>
+          <li><a href="privacy/privacy.html">Privacy</a></li>
+        
+          <li><a href="About/Ab.html">About Us</a></li>
+          <li><a href="Contucts/C.Home.html">Contact Us</a></li>
+      </ul>
+      <p> @2024 MAKAUT SuccessPath. All rights reserved.</p>
+  </div>     
+  </footer>
+    <script src="../static/js/home/swiper-bundle.min.js"></script>
+    <script src="../static/js/home/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

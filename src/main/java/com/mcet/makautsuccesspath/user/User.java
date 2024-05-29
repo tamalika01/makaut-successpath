@@ -1,11 +1,13 @@
 package com.mcet.makautsuccesspath.user;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.NaturalId;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 public class User implements UserDetails {
@@ -21,6 +23,7 @@ public class User implements UserDetails {
     private String lastName;
 
     @Column(updatable = false, nullable = false, length = 50)
+    @NaturalId
     private String email;
 
     @Column(nullable = false)
@@ -38,15 +41,20 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private boolean enabled;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<AuthGrantedAuthority> authorities;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
+        HashSet< SimpleGrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(this.role.toString()));
+        return authorities;
     }
 
-    public User(String firstName, String lastName, String email, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, Set<AuthGrantedAuthority> authorities) {
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String email, String password, boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled, UserRole role) {
         this.firstName=firstName;
         this.lastName=lastName;
         this.email = email;
@@ -55,7 +63,7 @@ public class User implements UserDetails {
         this.accountNonLocked = accountNonLocked;
         this.credentialsNonExpired = credentialsNonExpired;
         this.enabled = enabled;
-        this.authorities = authorities;
+        this.role = role;
     }
 
     @Override
@@ -92,10 +100,6 @@ public class User implements UserDetails {
         this.password = newPassword;
     }
 
-    public void setAuthorities(Set<AuthGrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -106,7 +110,7 @@ public class User implements UserDetails {
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +
                 ", enabled=" + enabled +
-                ", authorities=" + authorities +
+                ", role=" + role +
                 '}';
     }
 }

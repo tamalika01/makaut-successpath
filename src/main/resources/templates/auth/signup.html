@@ -11,10 +11,10 @@
 <body>
 <header th:insert="~{common/header.html :: header}"> </header>
 <!-- Main Content for this page-->
-<form class="container mx-5 my-5" method="POST" th:action="@{/signup}">
+<form class="signup-container mt-2 px-5 py-2" method="POST" th:action="@{/signup}">
     <div class="row ">
         <div class="form-group">
-            <h1 class="text-info pb-2  mt-3 text-center">Sign Up</h1>
+            <h4 class="text-primary pb-2  mt-3 text-center">Sign Up</h4>
         </div>
     </div>
     <div class="row mb-3">
@@ -28,19 +28,29 @@
         </div>
     </div>
     <div class="row mb-3">
-        <div class="col-md-6">
+        <div class="col">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
+    </div>
+    <div class="row mb-3">
         <div class="col-md-6">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>
+        <div class="col-md-6">
+            <label for="password2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="password2" name="password2">
+        </div>
     </div>
     <div class="row mb-3">
-        <a class=" float-start p-2" href="@{/login}">Log IN</a>
-        <button type="submit" class="btn btn-primary float-end">Sign Up</button>
+        <div class="col-8">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+        <div class="col-4">
+            <a class="p-2" href="@{/login}">Log IN</a>
+        </div>
     </div>
 </form>
 
