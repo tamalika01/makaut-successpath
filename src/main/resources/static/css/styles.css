@@ -8,7 +8,6 @@ body {
 }
 /* Navigation */
 nav{
-  position: fixed;
   width: 100%;
   background-color: #fff;
   display: flex;
@@ -582,6 +581,7 @@ body {
 }
 
 footer {
+  margin-top : 5vh;
   background-color: #2e2b2b;
   color: #fff;
   padding: 10px 0;

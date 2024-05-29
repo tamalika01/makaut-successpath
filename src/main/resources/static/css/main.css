@@ -1,4 +1,7 @@
-
+/*Hack to keep main content separate from navbar */
+.main{
+    margin-top: 20vh;
+}
 .navbar , footer{
     background-color: #7854F2
 }
@@ -17,6 +20,8 @@
     background-color: #EFECF7;
 
 }
+
+
 
 
 

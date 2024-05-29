@@ -3,28 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link th:href="@{css/main.css}" rel="stylesheet">
 </head>
 <body>
 <div th:fragment="footer">
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <a class="navbar-brand me-2" th:href="@{/}">
-                    <img
-                            th:src="@{images/logo-no-background.png}"
-                            height="35"
-                            width="160"
-                            alt="Logo"
-                            loading="lazy"
-                            style="margin-top: -1px;"
-                    />
-                </a>
-                <span class="mb-3 mb-md-0 text-muted">© 2024 Company, Inc</span>
-            </div>
-        </footer>
-    </div></div>
-<script src="https://cdn.tailwindcss.com"></script>
+    <footer>
+        <div class="footer-container">
+            <ul class="footer-links">
+                <li><a th:href="@{/blog}">Blogs</a></li>
+                <li><a th:href="@{/about}">About Us</a></li>
+                <li><a th:href="@{/contact}">Contact Us</a></li>
+            </ul>
+            <p class="text-white"> @2024 MAKAUT SuccessPath. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/","/login", "signup").permitAll()
-                        .requestMatchers("resources/*", "images/*", "css/*", "js/*").permitAll()
+                        .requestMatchers("/resources/**", "/images/**", "/css/**", "/js/**, /resources/images/**, /resources/css/**, /public/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((customizer) -> customizer

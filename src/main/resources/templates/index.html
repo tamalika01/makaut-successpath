@@ -11,25 +11,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
      <!-- Custom CSS -->
-    <link rel="stylesheet" th:href="@{css/styles.css}">
+     <link rel="stylesheet" th:href="@{css/styles.css}">
      <link rel="stylesheet" th:href="@{css/swiper-bundle.min.css}" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <img src="../static/images/home/logo-black.png">
-        <div class="navigation">
-            <ul>
-                <i id="close-btn" class="fa fa-xmark"></i>
-                <li><a href="sign up/login.html">Login / Sin up</a></li>
-            <li><a href="Question/NewQuestion.html">Questions</a></li>
-            <li><a href="Placement/PL.home.html">Placement </a></li>
-            <li><a href="Contucts/C.Home.html">Contucts</a></li>
-            <li><a href="About/Ab.html">About</a></li>
-            </ul>
-            <img src="../static/images/home/menu.png" id="menu-btn">
-        </div>
-    </nav>
+    <!-- Header -->
+    <header th:insert="~{common/header.html :: header}"> </header>
     <div class="flater">
       <marquee>Explore Questions and Placement materials in Computer Science & Engineering, Electrical Engineering, Electronics & Communication Engineering and Civil Engineering.</marquee>
   </div>
@@ -43,15 +30,15 @@
     <!-- Full-width images with number and caption text -->
     <div class="scroller-container">
         <div class="scroller">
-      <img src="../static/images/home/image1.jpg" style="width: 13%">
-      <img src="../static/images/home/image3.jpeg" style="width:14%">
-      <img src="../static/images/home/image4.jpeg" style="width:15%">
-      <img src="../static/images/home/c11.jpg" style="width: 13%">
-      <img src="../static/images/home/c10.jpg" style="width:10.05%">
-      <img src="../static/images/home/c9.jpg" style="width:14%">
-      <img src="../static/images/home/c8.jpg" style="width:15%">
-      <img src="../static/images/home/c6.jpg" style="width:14%">
-      <img src="../static/images/home/c7.jpeg" style="width:15%">
+      <img th:src="@{images/home/image1.jpg}" alt="Home Image" style="width: 13%">
+      <img th:src="@{images/home/image3.jpeg}" style="width:14%">
+      <img th:src="@{images/home/image4.jpeg}" style="width:15%">
+      <img th:src="@{images/home/c11.jpg}" style="width: 13%">
+      <img th:src="@{images/home/c10.jpg}" style="width:10.05%">
+      <img th:src="@{images/home/c9.jpg}" style="width:14%">
+      <img th:src="@{images/home/c8.jpg}" style="width:15%">
+      <img th:src="@{images/home/c6.jpg}" style="width:14%">
+      <img th:src="@{images/home/c7.jpeg}" style="width:15%">
     </div>
     </div>
   <!-- The dots/circles -->
@@ -89,7 +76,7 @@
       <p>Replenish man have thing gathering lights yeilding shall you</p>
       <div class="course-box">
           <div class="courses">
-              <img src="../static/images/home/c1.jpg">
+              <img th:src="@{images/home/c1.jpg}">
               <div class="details">
                   <span>Updated  01/05/2024</span>
                   <h6>HTML Beginners Courses</h6>
@@ -107,7 +94,7 @@
               </div>
           </div>
           <div class="courses">
-              <img src="../static/images/home/c2.jpg">
+              <img th:src="@{images/home/c2.jpg}">
               <div class="details">
                   <span>Updated  01/05/2024</span>
                   <h6>CSS Beginners Courses</h6>
@@ -125,7 +112,7 @@
               </div>
           </div>
           <div class="courses">
-              <img src="../static/images/home/c4.jpg">
+              <img th:src="@{images/home/c4.jpg}">
               <div class="details">
                   <span>Updated  01/05/2024</span>
                   <h6>Javascript Beginners Courses</h6>
@@ -143,7 +130,7 @@
               </div>
           </div>
           <div class="courses">
-              <img src="../static/images/home/image.png">
+              <img th:src="@{images/home/image.png}">
               <div class="details">
                   <span>Updated  01/05/2024</span>
                   <h6>CSS Advance Courses</h6>
@@ -161,7 +148,7 @@
               </div>
           </div>
           <div class="courses">
-              <img src="../static/images/home/c5.jpg">
+              <img th:src="@{images/home/c5.jpg}">
               <div class="details">
                   <span>Updated  01/05/2024</span>
                   <h6>HTML Advanced Courses</h6>
@@ -179,7 +166,7 @@
               </div>
           </div>
           <div class="courses">
-              <img src="../static/images/home/c8.jpg">
+              <img th:src="@{images/home/c8.jpg}">
               <div class="details">
                   <span>Updated 01/05/2024</span>
                   <h6>Javascript Advance  Courses</h6>
@@ -236,7 +223,7 @@
       <div class="expert-box">
 
           <div class="profile">
-              <img src="../static/images/home/pro1.png" >
+              <img th:src="@{images/home/pro1.png}" >
               <h6>Gourab Bhattacharjee</h6>
               <p>Html Css JavaScript & React</p>
               <div class="pro-link">
@@ -246,7 +233,7 @@
               </div>
           </div>
           <div class="profile">
-              <img src="../static/images/home/pro2.jpg" >
+              <img th:src="@{images/home/pro2.jpg}" >
               <h6>Sudipta Sarkar</h6>
               <p>Html Css JavaScript & React</p>
               <div class="pro-link">
@@ -256,7 +243,7 @@
               </div>
           </div>
           <div class="profile">
-              <img src="../static/images/home/pro3.png" class="ojlsjd">
+              <img th:src="@{images/home/pro3.png}" class="ojlsjd">
               <h6> Tamalika Chowdhury </h6>
               <p>Html Css JavaScript & React</p>
               <div class="pro-link">
@@ -266,7 +253,7 @@
               </div>
           </div>
           <div class="profile">
-              <img src="../static/images/home/pro4.png">
+              <img th:src="@{images/home/pro4.png}">
               <h6>Nidali Jaiswal</h6>
               <p>Html Css JavaScript & React</p>
               <div class="pro-link">
@@ -278,21 +265,8 @@
       </div>
   </section>
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <ul class="footer-links">
-          <li><a href="Blogs/BL.home.html">Blogs</a></li>
-          <li><a href="get-help/get-help.html">Get Help</a></li>
-          <li><a href="privacy/privacy.html">Privacy</a></li>
-        
-          <li><a href="About/Ab.html">About Us</a></li>
-          <li><a href="Contucts/C.Home.html">Contact Us</a></li>
-      </ul>
-      <p> @2024 MAKAUT SuccessPath. All rights reserved.</p>
-  </div>     
-  </footer>
-    <script src="../static/js/home/swiper-bundle.min.js"></script>
-    <script src="../static/js/home/script.js"></script>
-    <script src="script.js"></script>
+    <header th:insert="~{common/footer.html :: footer}"> </header>
+    <script th:src="@{js/home/swiper-bundle.min.js}"></script>
+    <script th:src="@{js/home/script.js}"></script>
 </body>
 </html>
