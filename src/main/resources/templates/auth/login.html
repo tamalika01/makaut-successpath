@@ -16,6 +16,9 @@
     <div th:if="${param.error}" class="alert alert-danger">
         Invalid username and password.
     </div>
+    <div th:if="${param.success}" class="alert alert-success">
+        You are logged Out Successfully
+    </div>
     <div class="row ">
         <div class="form-group">
             <h4 class="text-info pb-2  mt-3 text-center">Log In</h4>
@@ -35,9 +38,6 @@
         </div>
     </div>
     <div class="row mb-3">
-        <div class="col-6">
-            <a class="p-2" href="@{/forgot-password}">Forgot Password?</a>
-        </div>
         <div class="col-6">
             <button type="submit" class="btn btn-primary"> Login</button>
         </div>

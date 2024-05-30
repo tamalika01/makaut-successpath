@@ -77,6 +77,7 @@
 
                 // Clear any previous error messages
                 $('#error-message-container').empty();
+                $('#error2-message-container').empty();
                 $('#subject-container').empty();
 
                 // Check if the form is submitted with default selected fields
@@ -145,7 +146,7 @@
                                 let ele = `<tr>
                                             <td>${i++}</td>
                                             <td>${item.year}</td>
-                                            <td><a class="btn btn-primary" href="resources/question/${item.year}/${item.fileName}.pdf"> Download </a></td>
+                                            <td><a class="btn btn-primary" href="question-paper/${subjectId}/${item.year}/${item.fileName}.pdf" target="_blank"> Download </a></td>
                                             </tr>`;
                                 $('#subject-table').append($(ele));
                             });

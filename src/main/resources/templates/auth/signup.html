@@ -14,6 +14,16 @@
 <header th:insert="~{common/header.html :: header}"> </header>
 <!-- Main Content for this page-->
 <form class="signup-container mt-2 px-5 py-2" method="POST" th:action="@{/signup}">
+    <div class="row alert alert-danger" th:if="${errors != null}">
+        <ul>
+            <li th:each="error : ${errors}">
+                <span th:text="${error.field}"></span>: <span th:text="${error.defaultMessage}"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="row alert alert-success" th:if="${success!=null}">
+        <span th:text="${success}"></span>
+    </div>
     <div class="row ">
         <div class="form-group">
             <h4 class="text-primary pb-2  mt-3 text-center">Sign Up</h4>
@@ -45,13 +55,13 @@
             <label for="password2" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="password2" name="password2">
         </div>
+        <div class="col-12 mt-1">
+            <div id="passwordHelp" class="form-text">Password Should be min 6 length and must contain one character, digit, one special character</div>
+        </div>
     </div>
     <div class="row mb-3">
         <div class="col-8">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </div>
-        <div class="col-4">
-            <a class="p-2" href="@{/login}">Log IN</a>
+            <button type="submit" class="btn btn-2 btn-primary">Sign Up</button>
         </div>
     </div>
 </form>

@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .logout((customizer) -> customizer
                         .deleteCookies()
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-                        .logoutSuccessUrl("/login")
+                        .logoutSuccessUrl("/login?success")
                 );
         return http.build();
     }

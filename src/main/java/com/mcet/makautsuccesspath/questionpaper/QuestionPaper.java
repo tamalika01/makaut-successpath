@@ -21,6 +21,6 @@ public class QuestionPaper {
     @ManyToOne(fetch=FetchType.LAZY)
     Subject subject;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String fileName;
 }
